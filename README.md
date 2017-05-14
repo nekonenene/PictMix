@@ -1,5 +1,7 @@
 # PictMix
 
+[![CircleCI](https://circleci.com/gh/nekonenene/PictMix.svg?style=svg)](https://circleci.com/gh/nekonenene/PictMix)
+
 
 ## Note
 
