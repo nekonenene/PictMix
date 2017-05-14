@@ -10,7 +10,7 @@ class MainView: View(Constant.APP_NAME) {
 
     override val root = borderpane {
         top(MenuBarView::class)
-        center(InputBoxView::class)
+        center(FormView::class)
         bottom(FooterView::class)
     }
 
