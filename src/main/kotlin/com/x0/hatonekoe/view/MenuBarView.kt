@@ -16,24 +16,24 @@ class MenuBarView: View() {
 
         menu("File") {
             item("New", KeyCombination.valueOf("Shortcut+N")) {
-                setOnAction {
+                action {
                 }
             }
             item("Open", KeyCombination.valueOf("Shortcut+O")) {
-                setOnAction {
+                action {
                     FileService.openFile()
                 }
             }
             item("Save", KeyCombination.valueOf("Shortcut+S")) {
-                setOnAction {
+                action {
                 }
             }
             item("Save as new file", KeyCombination.valueOf("Shortcut+W")) {
-                setOnAction {
+                action {
                 }
             }
             item("Quit", KeyCombination.valueOf("Shortcut+Q")) {
-                setOnAction {
+                action {
                     Platform.exit()
                 }
             }

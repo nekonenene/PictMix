@@ -18,6 +18,9 @@ class PictMixApp: App() {
         stage.isFullScreen = false
         stage.minWidth  = Constant.WINDOW_MIN_WIDTH
         stage.minHeight = Constant.WINDOW_MIN_HEIGHT
+
+        stage.width = Constant.INITIAL_WINDOW_WIDTH
+        stage.height = Constant.INITIAL_WINDOW_HEIGHT
     }
 
     override fun stop() {
