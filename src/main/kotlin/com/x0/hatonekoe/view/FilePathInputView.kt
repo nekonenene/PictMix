@@ -3,8 +3,11 @@ package com.x0.hatonekoe.view
 import javafx.scene.input.TransferMode
 import tornadofx.*
 import java.io.File
+import java.util.*
 
 class FilePathInputView(fieldName: String = ""): View() {
+    val localeFile: ResourceBundle = ResourceBundle.getBundle("locale")
+
     override val root = field(fieldName) {
         textfield {
             setOnDragOver { event ->
@@ -34,7 +37,7 @@ class FilePathInputView(fieldName: String = ""): View() {
             }
         }
 
-        button("Select") {
+        button(localeFile["button.select"]) {
             action {
                 println("Open the dialog...")
             }
