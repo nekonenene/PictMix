@@ -19,13 +19,12 @@ object ImageService {
         val logoImageWidth: Double = imasLogoImage.size().width().toDouble()
         val imasLogoResizeRatio: Double = originalImageWidth / logoImageWidth / 2.0
 
-        val resizedLogoImage: Mat = Mat()
-        resize(imasLogoImage, resizedLogoImage, Size(), imasLogoResizeRatio, imasLogoResizeRatio, INTER_LINEAR)
+        resize(imasLogoImage, imasLogoImage, Size(), imasLogoResizeRatio, imasLogoResizeRatio, INTER_LINEAR)
 
         val ctr = Point2f(originalImage.cols().toFloat(), originalImage.rows().toFloat())
         val mat: Mat = getRotationMatrix2D(ctr, 0.0, 1.0)
 
-        warpAffine(resizedLogoImage, originalImage, mat, originalImage.size(), CV_INTER_LINEAR, BORDER_TRANSPARENT, null)
+        warpAffine(imasLogoImage, originalImage, mat, originalImage.size(), CV_INTER_LINEAR, BORDER_TRANSPARENT, null)
 
         imwrite(file.parent + "/" + removeExtension(file) + "_imas.png", originalImage)
     }
