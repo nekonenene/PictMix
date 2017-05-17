@@ -28,24 +28,6 @@ object ImageService {
 
         warpAffine(imasLogoImage, originalImage, mat, originalImage.size(), CV_INTER_LINEAR, BORDER_TRANSPARENT, null)
 
-        imwrite(file.parent + "/" + getFileNameWithoutExtension(file) + "_imas.png", originalImage)
-    }
-
-    /**
-     * Return the file name that is removed the extension
-     *
-     * @param file : target file
-     * @return the file name that is removed the extension
-     */
-    fun getFileNameWithoutExtension(file: File): String {
-        val fileName = file.name
-        val index = fileName.lastIndexOf('.')
-
-        if (index != -1) {
-            return fileName.substring(0, index)
-        } else {
-            // return original file name if doesn't have an extension
-            return fileName
-        }
+        imwrite(file.parent + "/" + FileService.getFileNameWithoutExtension(file) + "_imas.png", originalImage)
     }
 }

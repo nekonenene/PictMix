@@ -47,6 +47,24 @@ object FileService {
     }
 
     /**
+     * Return the file name that is removed the extension
+     *
+     * @param file : target file
+     * @return the file name that is removed the extension
+     */
+    fun getFileNameWithoutExtension(file: File): String {
+        val fileName = file.name
+        val index = fileName.lastIndexOf('.')
+
+        if (index != -1) {
+            return fileName.substring(0, index)
+        } else {
+            // return original file name if doesn't have an extension
+            return fileName
+        }
+    }
+
+    /**
      * Display the readable file size
      *
      * @param fileSizeByte: File size (byte)
