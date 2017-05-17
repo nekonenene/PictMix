@@ -22,7 +22,7 @@ class FormView : View() {
         button("Create!") {
             action {
                 val file = File(input1.filePathField.text)
-                ImageService.addImage(file)
+                ImageService.overlayImage(file)
             }
         }
     }

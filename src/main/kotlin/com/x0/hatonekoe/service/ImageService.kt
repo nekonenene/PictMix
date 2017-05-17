@@ -7,9 +7,11 @@ import java.io.File
 
 object ImageService {
     /**
-     * Open a file
+     * Overlay an image
+     *
+     * @param file : Underlay image file
      */
-    fun addImage(file: File) {
+    fun overlayImage(file: File) {
         val originalImage: Mat = imread(file.absolutePath, IMREAD_UNCHANGED)
 
         val imasLogoFile = File("imas_logo.png")
@@ -26,10 +28,16 @@ object ImageService {
 
         warpAffine(imasLogoImage, originalImage, mat, originalImage.size(), CV_INTER_LINEAR, BORDER_TRANSPARENT, null)
 
-        imwrite(file.parent + "/" + removeExtension(file) + "_imas.png", originalImage)
+        imwrite(file.parent + "/" + getFileNameWithoutExtension(file) + "_imas.png", originalImage)
     }
 
-    fun removeExtension(file: File): String {
+    /**
+     * Return the file name that is removed the extension
+     *
+     * @param file : target file
+     * @return the file name that is removed the extension
+     */
+    fun getFileNameWithoutExtension(file: File): String {
         val fileName = file.name
         val index = fileName.lastIndexOf('.')
 
